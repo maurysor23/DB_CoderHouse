@@ -1,0 +1,152 @@
+CREATE DATABASE
+IF NOT EXISTS `concesionaria-de-autos-ms`
+
+USE `concesionaria-de-autos-ms`;
+    
+-- ESTRUCTURA DE LA TABLA `CLIENTES`
+--DROP TABLE IF EXISTS `clientes`;
+    
+CREATE TABLE `clientes`
+                 (
+                  `id_clientes`       VARCHAR (20) NOT NULL,
+                  `nombre_completo`   VARCHAR(50) NOT NUL,
+                  `direccion`         VARCHAR(30) NOT NULL,
+                  `pais`              VARCHAR(30) NOT NULL,
+                  `teléfono`          VARCHAR (10) NOT NULL,
+                  `correo_electronico` VARCHAR(50) NOT NULL,
+                  `fecha_registro`     DATE NOT NULL,
+                   PRIMARY KEY (`id_clientes`)
+                  );
+
+
+-- ESTRUCTURA DE LA TABLA`EMPLEADOS`
+--DROP TABLE IF EXISTS `empleados`;
+
+CREATE TABLE `empleados`
+                 (
+                  `id_empleados`       VARCHAR (10) NOT NULL,
+                  `nombre_completo`    VARCHAR(30) NOT NULL,
+                  `direccion`          VARCHAR(30) NOT NULL,
+                  `localidad`          VARCHAR(30) NOT NULL,
+                  `teléfono`           VARCHAR (10) NOT NULL,
+                  `correo_electronico` VARCHAR(30) NOT NULL,
+                  `fecha_contratacion` DATE NOT NULL,
+                   PRIMARY KEY (`id_empleados`)
+                  );
+
+
+-- ESTRUCTURA DE LA TABLA `LLAMADAS`
+--DROP TABLE IF EXISTS `llamadas`;
+   
+CREATE TABLE `llamadas`
+                 (
+                  `id_llamadas`          INT NOT NULL auto_increment,
+                  `id_clientes`          VARCHAR (10) NOT NULL,
+                  `razon_llamada`        VARCHAR(20) NOT NULL,
+                  `calificacion_llamada` INT NOT NULL,
+                   PRIMARY KEY (`id_llamadas`),
+                   FOREIGN KEY (`id_clientes`) REFERENCES `clientes                     
+                  (`id_clientes`)      
+                  );
+
+
+-- ESTRUCTURA DE LA TABLA `PROVEEDORES`
+--DROP TABLE IF EXISTS `proveedores`;
+   
+CREATE TABLE `proveedores`
+                 (
+                  `id_poveedor`        INT NOT NULL auto_increment,
+                  `nombre_empresa`     VARCHAR(50) NOT NULL,
+                  `direccion`          VARCHAR(50) NOT NULL,
+                  `localidad`          VARCHAR(30) NOT NULL,
+                  `correo_electronico` VARCHAR(50) NOT NULL,
+                  `telefono`           VARCHAR (10) NOT NULL,
+                   PRIMARY KEY (`id_poveedor`)
+                  );               
+
+
+ -- ESTRUCTURA DE LA TABLA `SEGUROS`
+ --DROP TABLE IF EXISTS `seguros`;
+    
+CREATE TABLE `seguros`
+                 (
+                  `id_seguro`         INT NOT NULL auto_increment,
+                  `id_vehiculo`       VARCHAR (10) NOT NULL,
+                  `compania_seguro`   VARCHAR(50) NOT NULL,
+                  `cobertura`         VARCHAR(50) NOT NULL,
+                  `fecha_inicio`      DATE NOT NULL,
+                   PRIMARY KEY (`id_seguro`),
+                   FOREIGN KEY (`id_vehiculo`) REFERENCES `vehículos`
+                  (`id_vehiculo`)
+                  );
+
+
+-- ESTRUCTURA DE LA TABLA `SESIÓN WEB`
+--DROP TABLE IF EXISTS `sesion_web`;
+    
+CREATE TABLE `sesion_web`
+                 (
+                  `id_sesion_web`    INT NOT NULL auto_increment,
+                  `id_ clientes`     VARCHAR (20) NOT NULL,
+                  `tipo_dispositivo` VARCHAR (20) DEFAULT NULL,
+                  `navegador`        VARCHAR(20) NOT NULL,
+                  `direccion_ip`     VARCHAR(20) NOT NULL,
+                   PRIMARY KEY (`id_sesion_web`),
+                   FOREIGN KEY (`id_clientes`) REFERENCES `clientes` 
+                  (`id_clientes`)
+                  );
+
+
+-- ESTRUCTURA DE LA TABLA `UBICACIÓN CONCESIONARIA`
+--DROP TABLE IF EXISTS `ubicación concesionaria`;
+    
+CREATE TABLE `ubicacion_concesionaria`
+                 (
+                  `id_ubicacion`       INT NOT NULL auto_increment,
+                  `direccion`          VARCHAR(30) NOT NULL,
+                  `localidad`          VARCHAR(30) NOT NULL,
+                  `codigo_postal`      INT NOT NULL,
+                  `teléfono`           VARCHAR (10) NOT NULL,
+                  `correo_electronico` VARCHAR(50) NOT NULL,
+                   PRIMARY KEY (`id_ubicacion`),
+                  );
+
+
+-- ESTRUCTURA DE LA TABLA `VEHICULOS` 
+--DROP TABLE IF EXISTS `vehiculos`;
+   
+CREATE TABLE `vehiculos`
+                 (
+                  `id_vehiculo`      VARCHAR (10) NOT NULL,
+                  `marca`            VARCHAR(20) NOT NULL,
+                  `modelo`           VARCHAR(20) NOT NULL,
+                  `anio_fabricacion` INT NOT NULL,
+                  `color`            VARCHAR(20) NOT NULL,
+                  `precio_venta`     DECIMAL(9,2) NOT NULL,
+                  `estado`           ENUM('nuevo','usado') NOT NULL,
+                  `stock`            ENUM('disponible','sin stock') NOT                          
+                                          NULL, 
+                   PRIMARY KEY (`id_vehiculo`)
+                  );
+
+
+-- ESTRUCTURA DE LA TABLA `VENTAS`
+--DROP TABLE IF EXISTS `ventas`;
+    
+CREATE TABLE `ventas`
+                 (
+                  `id_ventas`    INT NOT NULL auto_increment,
+                  `id_clientes`  VARCHAR (20) NOT NULL,
+                  `id_vehiculo`  VARCHAR (10) NOT NULL,
+                  `id_empleados` VARCHAR (10) NOT NULL,
+                  `fecha_venta`  DATE NOT NULL,
+                  `forma_pago`   ENUM('efectivo','tarjeta debito','tarjeta   
+                                       credito')  NOT NULL,
+                   PRIMARY KEY (`id_ventas`),
+                   FOREIGN KEY (`id_clientes`) REFERENCES `clientes`
+                   (`id_clientes`),
+                   FOREIGN KEY (`id_vehiculo`) REFERENCES `vehiculos`
+                   (`id_vehiculo`),
+                   FOREIGN KEY (`id_empleados`) REFERENCES `empleados`
+                   (`id_empleados`)
+                  );
