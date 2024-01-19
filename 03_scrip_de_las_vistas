@@ -1,0 +1,51 @@
+-- 1 VISTA DE LOS PROVEEDORES CON MÁS VENTAS
+
+CREATE OR REPLACE view view_proveeedor_con_mas_venta AS
+  SELECT P.nombre_empresa,
+  Count(V.id_proveedor) AS cantidad
+  FROM   vehiculos V 
+  INNER JOIN proveedores P ON V.id_proveedor = P.id_proveedor
+  GROUP  BY V.id_proveedor
+  ORDER  BY cantidad DESC 
+
+
+-- 2 VISTA DE LOS EMPLEADOS CON MÁS VENTAS
+
+CREATE OR REPLACE view view_empleado_con_mas_ventas AS
+  SELECT V.id_empleados,
+  E.nombre_completo AS nombre_empleado,
+  Count(V.id_empleados) AS cantidad_venta
+  FROM   ventas V
+  INNER JOIN empleados E ON V.id_empleados = E.id_empleados
+  GROUP  BY V.id_empleados
+  ORDER  BY cantidad_venta DESC
+
+
+-- 3 VISTA DE LOS DISPOSITIVOS MÁS USADOS PARA LA BÚSQUEDA DE AUTOS EN VENTAS
+
+CREATE OR REPLACE view view_dispositivo_mas_usado AS
+  SELECT tipo_dispositivo,
+  Count(tipo_dispositivo) AS dispositivo_mas_usado
+  FROM   sesion_web
+  GROUP  BY tipo_dispositivo
+  ORDER  BY dispositivo_mas_usado DESC 
+
+
+-- 4 VISTA DE LOS MOTIVOS DE LAS LLAMADAS MÁS FRECUENTES
+
+CREATE OR REPLACE view view_motivo_de_las_llamadas AS
+  SELECT razon_llamada,
+  Count(razon_llamada) cantidad
+  FROM   llamadas
+  GROUP  BY razon_llamada
+  ORDER  BY cantidad DESC 
+
+
+-- 5 VISTA DE LAS FORMAS DE PAGO MÁS USADOS POR LOS CLIENTES
+
+CREATE OR REPLACE view view_forma_de_pago_mas_usado AS
+  SELECT forma_pago,
+  Count(forma_pago) AS cantidad
+  FROM   ventas
+  GROUP  BY forma_pago
+  ORDER  BY cantidad DESC 
