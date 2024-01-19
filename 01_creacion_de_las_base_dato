@@ -45,8 +45,7 @@ CREATE TABLE `llamadas`
                   `razon_llamada`        VARCHAR(20) NOT NULL,
                   `calificacion_llamada` INT NOT NULL,
                    PRIMARY KEY (`id_llamadas`),
-                   FOREIGN KEY (`id_clientes`) REFERENCES `clientes                     
-                  (`id_clientes`)      
+                   FOREIGN KEY (`id_clientes`) REFERENCES `clientes (`id_clientes`)      
                   );
 
 
@@ -76,8 +75,7 @@ CREATE TABLE `seguros`
                   `cobertura`         VARCHAR(50) NOT NULL,
                   `fecha_inicio`      DATE NOT NULL,
                    PRIMARY KEY (`id_seguro`),
-                   FOREIGN KEY (`id_vehiculo`) REFERENCES `vehículos`
-                  (`id_vehiculo`)
+                   FOREIGN KEY (`id_vehiculo`) REFERENCES `vehículos`(`id_vehiculo`)
                   );
 
 
@@ -92,8 +90,7 @@ CREATE TABLE `sesion_web`
                   `navegador`        VARCHAR(20) NOT NULL,
                   `direccion_ip`     VARCHAR(20) NOT NULL,
                    PRIMARY KEY (`id_sesion_web`),
-                   FOREIGN KEY (`id_clientes`) REFERENCES `clientes` 
-                  (`id_clientes`)
+                   FOREIGN KEY (`id_clientes`) REFERENCES `clientes`(`id_clientes`)
                   );
 
 
@@ -124,9 +121,9 @@ CREATE TABLE `vehiculos`
                   `color`            VARCHAR(20) NOT NULL,
                   `precio_venta`     DECIMAL(9,2) NOT NULL,
                   `estado`           ENUM('nuevo','usado') NOT NULL,
-                  `stock`            ENUM('disponible','sin stock') NOT                          
-                                          NULL, 
+                  `stock`            ENUM('disponible','sin stock') NOT NULL, 
                    PRIMARY KEY (`id_vehiculo`)
+                   FOREIGN KEY (`id_proveedor`) REFERENCES `proveedores`(`id_proveedor`)
                   );
 
 
@@ -140,13 +137,9 @@ CREATE TABLE `ventas`
                   `id_vehiculo`  VARCHAR (10) NOT NULL,
                   `id_empleados` VARCHAR (10) NOT NULL,
                   `fecha_venta`  DATE NOT NULL,
-                  `forma_pago`   ENUM('efectivo','tarjeta debito','tarjeta   
-                                       credito')  NOT NULL,
+                  `forma_pago`   ENUM('efectivo','tarjeta debito','tarjeta credito')  NOT NULL,
                    PRIMARY KEY (`id_ventas`),
-                   FOREIGN KEY (`id_clientes`) REFERENCES `clientes`
-                   (`id_clientes`),
-                   FOREIGN KEY (`id_vehiculo`) REFERENCES `vehiculos`
-                   (`id_vehiculo`),
-                   FOREIGN KEY (`id_empleados`) REFERENCES `empleados`
-                   (`id_empleados`)
+                   FOREIGN KEY (`id_clientes`) REFERENCES `clientes`(`id_clientes`),
+                   FOREIGN KEY (`id_vehiculo`) REFERENCES `vehiculos`(`id_vehiculo`),
+                   FOREIGN KEY (`id_empleados`) REFERENCES `empleados`(`id_empleados`)
                   );
