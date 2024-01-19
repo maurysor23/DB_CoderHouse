@@ -1,0 +1,21 @@
+-- 1 FUNCION QUE DETERMINA EL PROMEDIO TOTAL DEL PRECIO DE VENTA
+
+CREATE DEFINER=`root`@`localhost FUNCTION`fn_promedio_total_ventas`() RETURNS decimal(9,2)
+DETERMINISTIC
+BEGIN
+declare promedio decimal(9,2);
+SELECT avg(precio_venta) INTO promedio FROM vehiculos;
+RETURN promedio;
+END
+
+
+
+-- 2 FUNCION QUE DETERMINA LA SUMA TOTAL DEL PRECIO DE VENTA
+
+CREATE DEFINER=`root`@`localhost` FUNCTION`fn_suma_total_de_las_ventas`() RETURNS int
+DETERMINISTIC
+BEGIN
+declare suma_total int;
+select sum(precio_venta) into suma_total from vehiculos;
+RETURN suma_total;
+END
