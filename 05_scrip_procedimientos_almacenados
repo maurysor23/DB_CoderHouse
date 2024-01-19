@@ -1,0 +1,25 @@
+/*1 ESTE PROCEDIMIENTO ALMACENADO CREADO NOS DETALLA EL ORDENAMIENTO DE UN CAMPO YA SEA DE MANERA ASCENDENTE O DESCENDENTE. 
+EN ESTE CASO EN PARTICULAR DE PUEDE ORDENAR EL CAMPO (PRECIO_VENTA), PARA SABER CUAL ES ES EL VEHICULO MAS CARO DEL MERCADO*/
+
+CREATE definer=`root`@`localhost` 
+PROCEDURE `sp_orden_precio_de_venta`(IN campo varchar(50), IN orden varchar(20))
+BEGIN
+SET @clausula = Concat('SELECT marca, modelo, precio_venta FROM vehiculos ORDER BY ', campo, ' ', orden);
+PREPARE runsql FROM @clausula;
+EXECUTE Runsql;
+DEALLOCATE prepare runsql;
+END
+
+
+/*2 este procedimiento almacenado nos permite insertar nuevos valores a una tabla ya creada, que en este caso es la tabla 
+(ubicacion_concesionaria) que contaba con 5 registros, pero con este SP realizado se logro la actualizacion y 
+insercion de una fila de datos*/
+
+
+CREATE definer=`root`@`localhost` 
+PROCEDURE `sp_insercion_registro_nuevos`(IN id_ubicacion int, IN direccion varchar (30), IN localidad varchar(30), 
+IN codigo_postal int, IN telefono varchar(10), IN correo_electronico varchar(50))
+BEGIN
+INSERT INTO ubicacion_concesionaria (id_ubicacion, direccion, localidad, codigo_postal, telefono, correo_electronico)
+VALUES (id_ubicacion, direccion, localidad, codigo_postal, telefono, correo_electronico );
+END
