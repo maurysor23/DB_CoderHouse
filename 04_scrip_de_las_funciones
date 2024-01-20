@@ -1,21 +1,30 @@
--- 1 FUNCION QUE DETERMINA EL PROMEDIO TOTAL DEL PRECIO DE VENTA
+-- 1 ESTAS FUNCIÓN DETERMINA CUAL FUE EL COLOR DE AUTO MAS DEMANDADO, EN ESTE CASO PARA LLEGAR A DICHA RESPUESTA 
+SE REALIZO UN INNER JOIN DENTRO DE LA FUNCIÓN PARA LOGRAR EL OBJETIVO DESEADO.
 
-CREATE DEFINER=`root`@`localhost FUNCTION`fn_promedio_total_ventas`() RETURNS decimal(9,2)
+CREATE definer=`root`@`localhost`
+FUNCTION `fn_color_mas_demandado`(color VARCHAR (20)) 
+RETURNS INT
 DETERMINISTIC
 BEGIN
-declare promedio decimal(9,2);
-SELECT avg(precio_venta) INTO promedio FROM vehiculos;
-RETURN promedio;
+    DECLARE cantidad_color INT;
+    SELECT Count(color) INTO cantidad_color
+    FROM vehiculos VE
+    INNER JOIN ventas V ON VE.id_vehiculo = V.id_vehiculo
+    WHERE      VE.color = color;
+RETURN cantidad_color;
 END
 
 
 
--- 2 FUNCION QUE DETERMINA LA SUMA TOTAL DEL PRECIO DE VENTA
+-- 2 ESTA FUNCIÓN DETERMINA CUAL FUE LA COMPANIA DE SEGURO TOP N° 1 DE LOS AUTOS MÁS VENDIDOS
 
-CREATE DEFINER=`root`@`localhost` FUNCTION`fn_suma_total_de_las_ventas`() RETURNS int
+CREATE definer=`root`@`localhost`
+FUNCTION `fn_mejor_compania_seguro`(nombre_compania VARCHAR (50)) RETURNS INT
 DETERMINISTIC
 BEGIN
-declare suma_total int;
-select sum(precio_venta) into suma_total from vehiculos;
-RETURN suma_total;
+    DECLARE cantidad VARCHAR (30);
+    SELECT Count(compania_seguro) INTO   cantidad
+    FROM   seguros
+    WHERE  nombre_compania = compania_seguro;
+RETURN cantidad;
 END
