@@ -1,0 +1,207 @@
+/* Solo se está proporcionando 20 registros de cada tablas, dado a la cantidad de filas que contienen las mismas. 
+Salvo las siguientes tablas que a continuación se describen se brindara la totalidad de los registros 
+(LLAMADAS, PROVEEDORES, UBICACION_CONCESIONARIA)*/
+
+
+-- 1 INSERCIÓN DE REGISTROS EN LA TABLA CLIENTES
+
+
+INSERT INTO `clientes`(Id_clientes, Nombre_Completo, Direccion,	Localidad, Telefono, Correo_Electronico, Fecha_Registro)
+VALUES
+('0060-37','Falkner Reap','6 Oak Valley Road','San_Martín',   '1961-8192','freapg@nps.gov','2020-12-05'),
+('0150-98','Doy Trainer','6 Ilene Trail','San_Miguel', '4611-2750','dtrainerd@360.cn','2020-09-03'),
+('0226-07','Torrie Cossons','2141 Memorial Road','San_Isidro', '7433-5314','tcossons2q@ox.ac.uk','2021-07-21'),
+('0228-77','Valencia Fairs','85192 Blaine Street','Avellaneda', '8047-1573','vfairs5@prlog.org','2022-06-22'),
+('0243-74','Norman Brunker','16515 Vernon Pass','Tigre', '1661-2147','nbrunker5i@1688.com','2022-03-16'),
+('0293-95','Neysa Fitzackerley','19 East Point','La_Plata', '6801-8680','nfitzackerley31@narod.ru','2020-09-18'),
+('0316-78','Gregor Spata','35326 Harbort Parkway','CABA', '0604-3039','gspata52@mozilla.com','2022-04-18'),
+('0576-04','Lynna Rangle','1 Maryland Hill','San_Miguel', '2639-7614','lrangle1t@pcworld.com','2023-09-02'),
+('0603-95','Beret Martugin','59 Grim Way','Tigre', '8442-6224','bmartugin11@dagondesign.com','2021-07-05'),
+('0635-29','Danette Ridel','4 Sloan Court','San_Miguel', '5527-1098','dridel51@topsy.com','2020-04-11'),
+('0651-89','Marlin Ciobotaro','59935 4th Alley','MDQ', '2460-0873','mciobotaro39@gravatar.com','2020-01-25'),
+('0667-67','Prentice Warnock','49115 Carey Lane','San_Martín', '4823-0764','pwarnockq@scribd.com','2020-05-05'),
+('0677-67','Horst Camelli','52877 Huxley Plaza','CABA', '7815-9339','hcamelli4a@dmoz.org','2023-11-04'),
+('0764-90','Loralee Alu','6 Saint Paul Park','La_Plata', '9252-8897','lalu26@github.com','2021-09-23'),
+('0766-23','Christoper Rubrow','49 Northland Junction','CABA', '8134-5265','crubrow4i@kickstarter.com','2020-02-20'),
+('0802-25','Jacintha Howard','0760 Utah Lane','Pinamar', '9233-8515','jhoward3n@delicious.com','2020-01-19'),
+('0924-11','Aluino Gillman','587 Northfield Plaza','CABA', ‘1026-8496','agillman2b@123-reg.co.uk','2022-04-03'),
+('0933-67','Bryn MacDonald','6 Oxford Trail','CABA', '2551-7932','bmacdonald6@huffingtonpost.com','2020-01-22'),
+('0937-94','Fredia Durand','350 Sommers Road','San_Miguel', '2589-4356','fdurand3a@gravatar.com','2022-05-28'),
+
+
+-- 2 INSERCIÓN DE REGISTROS EN LA TABLA EMPLEADOS
+
+INSERT INTO `empleados` (ID_Empleados, Nombre_Completo,Direccion	Localidad, Telefono, Correo_Electronico, Fecha_Contratacion)
+VALUES 
+('02-1183642','Brant Drohane','30 John Wall Plaza','Los Hornos','4357-9916','bdrohane8@dropbox.com','2019-09-27'),
+('05-3602057','Sinclare Willshee','876 Karstens Lane','Los Hornos','1052-6615','swillsheek@sogou.com','2019-10-03'),
+('06-3834860','Willem Obeney','312 Forest Run Plaza','Villa Elisa','5484-5517','wobeney13@ow.ly','2019-10-09'),
+('07-0293496','Mattie Jameson','3 Hauk Place','La Plata','6333-4404','mjameson1@microsoft.com','2019-09-13'),
+('07-0887356','Minta Abercrombie','958 Messerschmidt Hill','Beriso','3637-5513','mabercrombie6@devhub.com','2019-10-08'),
+('09-3307589','Tamarra Kordt','83 Shoshone Pass','Ensenada','3991-2635','tkordtr@nature.com','2019-07-07'),
+('11-2684081','Rutter Menichelli','62600 Glacier Hill Drive','Beriso','5301-2943','rmenichellit@gnu.org','2019-11-20'),
+('13-8925216','Stewart Vinter','50744 Oriole Trail','La Plata','8198-2331','svinter1d@google.cn','2019-10-09'),
+('17-3295777','Claus Faragan','76 Bartillon Place','La Plata','3252-3390','cfaragand@seattletimes.com','2019-10-25'),
+('21-8781620','Jolee Blodget','96 Lukken Center','Ensenada','8239-6551','jblodget0@upenn.edu','2019-11-29'),
+('22-5624270','Lilias Lescop','3688 Farmco Hill','Villa Elisa','4675-5753','llescopc@geocities.com','2019-07-02'),
+('23-1000793','Rowney Pardoe','3389 Northridge Terrace','Villa Elisa','7980-9810','rpardoe1c@ycombinator.com','2019-09-20'),
+('25-4111185','Leelah Renish','63 Erie Parkway','Ensenada','4362-8134','lrenishx@huffingtonpost.com','2019-09-16'),
+('28-1669522','Mauricio Perell','56 Rutledge Center','Villa Elisa','7832-0843','mperells@hp.com','2019-09-17'),
+('28-8555168','Mil Drache','08650 Little Fleur Alley','Beriso','9452-6038','mdrache9@blogspot.com','2019-10-19'),
+('30-0988085','Peirce Giacubbo','9 Cottonwood Road','La Plata','2809-8531','pgiacubbo18@goodreads.com','2019-08-02'),
+('30-7520504','Stacy McAulay','8244 Havey Place','Los Hornos','7099-8983','smcaulayb@chron.com','2019-12-14'),
+('31-2686022','Wynne Brady','01011 Mcguire Park','Los Hornos','6235-1077','wbradyy@soup.io','2019-09-07'),
+('35-0125196','Yorgos Titterington','1 Lakewood Gardens Pass','La Plata','6551-6061','ytitteringtonz@360.cn','2019-09-14'),
+('36-7919296','Brittaney Writtle','12515 Truax Trail','Beriso','9165-6618','bwrittle15@booking.com','2019-08-16');
+
+
+-- 3 INSERCIÓN DE REGISTROS EN LA TABLA LLAMADAS
+
+INSERT INTO `llamadas` (Id_Llamadas, Id_cliente, Razon_Llamada,	Calificacion_Llamada)
+VALUES 
+(1,'8073-73','ventas',4),
+(2,'8077-24','ventas',4),
+(3,'8078-47','ventas',4),
+(4,'8081-24','ventas',4),
+(5,'8086-16','ventas',4),
+(6,'8172-30','ventas',5),
+(7,'8235-56','ventas',5),
+(8,'8306-10','ventas',5),
+(9,'8356-97','ventas',5),
+(10,'8438-35','ventas',5),
+(11,'8460-12','ventas',5),
+(12,'8541-96','ventas',5),
+(13,'8555-99','ventas',5),
+(14,'8580-55','ventas',5),
+(15,'8664-26','ventas',5),
+(16,'8699-46','ventas',5),
+(17,'8806-55','ventas',5),
+(18,'8815-09','ventas',5),
+(19,'8850-59','ventas',5),
+(20,'8931-21','ventas',5);
+
+
+--4 INSERCIÓN DE REGISTROS EN LA TABLA PROVEEDORES
+
+INSERT INTO `proveedores`(ID_Proveedor, Nombre_Empresa,	Direccion, Localidad, Correo_Electronico, Telefono)
+VALUES 
+(1,'Toyota car S.A','Thomas Edison 2659 Piso 2 ','Buenos Aires','ToyotaArgentina@hotmail.com','9367-2330'),
+(2,'volkswagen Central S.A','Av. de las Industrias 3101','Buenos Aires','VolkswagenArgentina@gmail.com','3979-2535'),
+(3,'Renault Automotriz S.A','Fray Justo Santa MarÃ­a de Oro 1744','Buenos Aires','RenaultArgentina@hotmail.com','3926-4470'),
+(4,'Ford Simone S.A','Av. Henry Ford y Ruta Panamericana','Buenos Aires','FordArgentina@hotmail.com','4954-3383'),
+(5,'Chevrolet KiaraS.A','Juan Domingo PerÃ³n 1001','Buenos Aires','ChevroletArgentina@gmaill.com','9996-3555');
+
+
+-- 5 INSERCIÓN DE REGISTROS EN LA TABLA SEGUROS
+
+INSERT INTO `seguros` (ID_Seguro, ID_Vehiculo, Compania_Seguro	Cobertura, Fecha_Inicio)
+VALUES 
+(1,'00-1576950','Liderar','Todo Riesgo','2023-03-02'),
+(2,'00-9313366','La Caja','Tercero Completo','2020-04-21'),
+(3,'02-0928959','La Caja','Todo Riesgo','2022-07-14'),
+(4,'02-8722041','Federacion Patronal','Todo Riesgo','2022-08-18'),
+(5,'03-0426777','Liderar','Todo Riesgo','2020-08-20'),
+(6,'05-2613297','Federacion Patronal','Todo Riesgo','2021-02-09'),
+(7,'06-8185607','Rivadavia','Todo Riesgo','2022-06-10'),
+(8,'06-8492347','Federacion Patronal','Tercero Completo','2023-01-21'),
+(9,'07-3679220','Rivadavia','Todo Riesgo','2020-07-13'),
+(10,'07-7797599','La Caja','Tercero Completo','2023-04-07'),
+(11,'09-2752442','La Caja','Todo Riesgo','2022-11-15'),
+(12,'10-0261252','Rivadavia','Tercero Completo','2023-06-12'),
+(13,'10-4069282','Rivadavia','Todo Riesgo','2020-02-02'),
+(14,'10-6678364','Liderar','Todo Riesgo','2021-11-02'),
+(15,'10-6846903','Federacion Patronal','Responsabilidad Civil','2021-10-25'),
+(16,'10-9964318','Rivadavia','Todo Riesgo','2021-12-06'),
+(17,'11-9229953','La Caja','Tercero Completo','2023-01-17'),
+(18,'12-5734932','Federacion Patronal','Tercero Completo','2023-07-19'),
+(19,'12-9715615','La Caja','Todo Riesgo','2021-08-24'),
+(20,'13-8857801','La Caja','Tercero Completo','2021-12-17');
+
+
+-- 6 INSERCIÓN DE REGISTROS EN LA TABLA SESIONES WEB
+
+INSERT INTO `sesion_web` (ID_Sesion_Web, ID_Clientes	Tipo_Dispositivo, Navegador, Direccion_IP)
+VALUES 
+(1,'0060-37','laptop','Bing','159.105.45.157'),
+(2,'0150-98','desktop','Chrome','99.99.203.47'),
+(3,'0226-07','desktop','Chrome','246.63.55.220'),
+(4,'0228-77','desktop','Chrome','122.180.136.142'),
+(5,'0243-74','smartphone','Chrome','41.226.106.152'),
+(6,'0293-95','desktop','Safari','147.183.43.138'),
+(7,'0316-78','smartphone','Yahoo','67.111.228.98'),
+(8,'0576-04','desktop','Bing','123.147.185.77'),
+(9,'0603-95','smartphone','Bing','3.180.118.167'),
+(10,'0635-29','desktop','Yahoo','57.235.133.252'),
+(11,'0651-89','desktop','Safari','128.164.211.44'),
+(12,'0667-67','desktop','Yahoo','99.209.121.228'),
+(13,'0677-67','laptop','Bing','156.110.137.26'),
+(14,'0764-90','smartphone','Chrome','15.184.118.125'),
+(15,'0766-23','desktop','Yahoo','19.215.171.206'),
+(16,'0802-25','smartphone','Bing','250.213.250.148'),
+(17,'0924-11','smartphone','Chrome','174.207.152.205'),
+(18,'0933-67','smartphone','Chrome','203.208.95.117'),
+(19,'0937-94','smartphone','Safari','246.63.175.64'),
+(20,'0938-44','laptop','Chrome','185.157.214.174');
+
+
+-- 7 INSERCIÓN DE REGISTROS EN LA TABLA UBICACIÓN DE LA CONCESIONARIA
+
+INSERT INTO `ubicacion_concesionaria` (Id_Ubicacion, Direccion	Localidad, Codigo_postal, Telefono, Correo_Electronico)
+VALUES 
+(1,'6944 Kim Lane','CABA',1095,'3143-1451','autos.ms1@hotmail.com'),
+(2,'54757 Jenna Crossing','La Plata',1891,'9779-9130','autos.ms2@gmail.com'),
+(3,'84 School Pass','San Isidro',1230,'0609-1523','autos.ms3@hotmail.com'),
+(4,'0614 Lillian Avenue','Tigre',1418,'3582-7959','autos.ms4@gmail.com'),
+(5,'94 Farmco Terrace','Pinamar',1272,'3595-1518','autos.ms5@gmail.com');
+
+
+-- 8 INSERCIÓN DE REGISTROS EN LA TABLA VEHICULOS
+
+INSERT INTO `vehiculos` (ID_Vehiculo, ID_Proveedor, Marca, Modelo, Anio_fabricacion, Color, Precio_Venta, Estado, Stock)
+VALUES 
+('00-1576950',4,'Ford','F150',2022,'rojo',2776614.52,'nuevo','disponible'),
+('00-8465142',1,'Toyota','Etios',2019,'gris oscuro',5861278.94,'nuevo','disponible'),
+('00-9313366',2,'Volkswagen','Vento',2015,'rojo',1834521.69,'nuevo','disponible'),
+('01-2517712',2,'Volkswagen','Gol',2019,'rojo',2929259.37,'nuevo','sin stock'),
+('02-0928959',4,'Ford','F150',2015,'blanco',1597701.84,'nuevo','disponible'),
+('02-4056236',2,'Volkswagen','Gol',2016,'negro',2127551.72,'usado','disponible'),
+('02-5159297',2,'Volkswagen','Vento',2016,'rojo',7143729.87,'nuevo','disponible'),
+('02-8722041',5,'Chevrolet','Onix',2021,'negro',4657222.04,'nuevo','disponible'),
+('03-0426777',4,'Ford','Ranger',2015,'gris plata',7041776.90,'nuevo','disponible'),
+('03-1571501',1,'Toyota','Etios',2022,'gris plata',8014874.44,'nuevo','disponible'),
+('05-2613297',1,'Toyota','Etios',2023,'azul',6764025.35,'nuevo','disponible'),
+('05-4193781',5,'Chevrolet','Corsa',2017,'rojo',3527638.40,'nuevo','sin stock'),
+('06-6587027',5,'Chevrolet','Corsa',2018,'negro',1243214.09,'nuevo','sin stock'),
+('06-8185607',5,'Chevrolet','Corsa',2018,'gris oscuro',1904857.54,'nuevo','disponible'),
+('06-8492347',3,'Renault','Fluence',2021,'bordo',3055211.63,'nuevo','sin stock'),
+('07-2276778',1,'Toyota','Corolla',2019,'bordo',4473453.68,'nuevo','sin stock'),
+('07-3679220',2,'Volkswagen','Golf',2019,'gris oscuro',5291018.35,'usado','disponible'),
+('07-7797599',3,'Renault','Fluence',2021,'blanco',8852522.55,'nuevo','disponible'),
+('07-8908566',3,'Renault','Fluence',2018,'azul',2518795.14,'nuevo','sin stock'),
+('09-2752442',2,'Volkswagen','Vento',2023,'gris plata',4138840.92,'nuevo','sin stock');
+
+
+-- 9 INSERCIÓN DE REGISTROS EN LA TABLA VENTAS
+
+INSERT INTO `ventas` (ID_Ventas, ID_Clientes, ID_Vehiculo,	ID_Empleados, Fecha_Venta, Forma_Pago,	Id_Ubicacion)
+VALUES 
+(1,'0060-37','00-1576950','30-0988085','2023-03-02','tarjeta credito',2),
+(2,'0150-98','00-9313366','71-2260745','2020-04-21','efectivo',2),
+(3,'0226-07','02-0928959','05-3602057','2022-07-14','tarjeta debito',1),
+(4,'0228-77','02-8722041','66-2187507','2022-08-18','efectivo',1),
+(5,'0243-74','03-0426777','38-1842476','2020-08-20','efectivo',3),
+(6,'0293-95','05-2613297','54-3856891','2021-02-09','efectivo',5),
+(7,'0316-78','06-8185607','66-3809899','2022-06-10','tarjeta debito',4),
+(8,'0576-04','06-8492347','22-5624270','2023-01-21','tarjeta credito',4),
+(9,'0603-95','07-3679220','25-4111185','2020-07-13','efectivo',5),
+(10,'0635-29','07-7797599','55-2451633','2023-04-07','efectivo',1),
+(11,'0651-89','09-2752442','69-9357524','2022-11-15','efectivo',5),
+(12,'0667-67','10-0261252','02-1183642','2023-06-12','efectivo',5),
+(13,'0677-67','10-4069282','47-6138805','2020-02-02','tarjeta debito',3),
+(14,'0764-90','10-6678364','36-7919296','2021-11-02','tarjeta debito',4),
+(15,'0766-23','10-6846903','35-0125196','2021-10-25','tarjeta debito',3),
+(16,'0802-25','10-9964318','62-3874375','2021-12-06','tarjeta credito',2),
+(17,'0924-11','11-9229953','42-3169587','2023-01-17','efectivo',5),
+(18,'0933-67','12-5734932','42-9475091','2023-07-19','efectivo',1),
+(19,'0937-94','12-9715615','70-1378665','2021-08-24','efectivo',2),
+(20,'0938-44','13-8857801','06-3834860','2021-12-17','efectivo',5);
