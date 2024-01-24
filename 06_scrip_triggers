@@ -20,7 +20,7 @@ INSERT INTO log_llamadas (Id_Llamadas, Razon_Llamada, user_id, fecha_insert, hor
 VALUES (NEW.Id_Llamadas, NEW.Razon_Llamada, USER(), NOW(), NOW());
 
 INSERT INTO llamadas (Id_Llamadas, id_clientes, razon_llamada, calificacion_llamada)
-VALUES (202, "7818-00", "Ventas", 5)
+VALUES (203, "7818-00", "Ventas", 5)
 
 
 /*2 PRIMERAMENTE SE PROCEDIÓ A LA CREACIÓN DE UNA NUEVA TABLA LLAMADA (LOG_LLAMADAS_DELETE), EN EL CUAL EN ESTA MISMA SE VAN A ALMACENAR LOS DATOS DE USUARIO 
