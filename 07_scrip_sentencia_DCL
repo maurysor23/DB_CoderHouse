@@ -1,0 +1,23 @@
+-- 1 seleccionamos el schema con el cual vamos a trabajar
+USE mysql;
+
+-- creamos el user que solo tendrá el permiso de lectura
+CREATE user mauricio@localhost identified BY '123456';
+
+-- concedemos solo el permiso de lectura sobre todas las tablas del esquema (concesionaria-de-auto), no se puede eliminar registros
+GRANT SELECT ON `concesionaria-de-autos-ms`.* TO mauricio@localhost;
+  
+-- corroboramos si efectivamente este usuario creado solo tiene el permiso de lectura
+SHOW grants FOR mauricio@localhost;
+
+-- 2 seleccionamos el schema con el cual vamos a trabajar
+USE mysql;
+
+-- creamos el user que solo tendrá el permiso de lectura 
+CREATE, INSERT,UPDATE user coder@localhost identified BY '987654';
+
+-- concedemos solo el permiso de lectura, inserción y actualización sobre todas las tablas del esquema (concesionaria-de-auto), no se puede eliminar registros
+GRANT SELECT,INSERT,UPDATE ON `concesionaria-de-autos-ms`.* TO coder@localhost;
+  
+-- corroboramos si efectivamente este usuario creado solo tiene el permiso de lectura, insercion y actualizacion
+SHOW grants FOR coder@localhost;
