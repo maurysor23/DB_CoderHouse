@@ -21,3 +21,9 @@ GRANT SELECT,INSERT,UPDATE ON `concesionaria-de-autos-ms`.* TO coder@localhost;
   
 -- corroboramos si efectivamente este usuario creado solo tiene el permiso de lectura, insercion y actualizacion
 SHOW grants FOR coder@localhost;
+
+-- 3 con esta sentencia le estamos diciendo al sistema que le quite el permiso delete a ambos usuarios sobre todas las tablas del esquema (concesionaria-de-auto)
+
+REVOKE DELETE ON `concesionaria-de-autos-ms`.* FROM mauricio@localhost;
+
+REVOKE DELETE ON `concesionaria-de-autos-ms`.* FROM coder@localhost; 
