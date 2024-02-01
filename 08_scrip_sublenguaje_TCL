@@ -1,0 +1,70 @@
+/* 1 Con esta sentencia le estamos realizando las siguientes tareas:
+1) Realizamos una transacción para poder modificar los datos de una determinada tabla
+2) Seleccionamos el esquema con el cual vamos a trabajar
+3) Realizamos la eliminación de cinco registros de la tabla LLAMADA
+4) Se convoca a la sentencia ROLLBACK (comentado como se solicita en el desafío), 
+para deshacer las modificaciones previas realizadas y dejar a la tabla LLAMADAS con los datos restaurados 
+5) Por último se realiza una COMMIT (comentado como se solicita en el desafío), para guardar y confirmar todas las operaciones realizadas sobre la tabla LLAMADA*/
+
+
+START transaction; 
+
+USE `concesionaria-de-autos-ms`;
+
+DELETE FROM llamadas
+WHERE  id_llamadas = 1;
+
+DELETE FROM   llamadas
+WHERE  id_llamadas = 2;
+
+DELETE FROM   llamadas
+WHERE  id_llamadas = 3;
+
+DELETE FROM   llamadas
+WHERE  id_llamadas = 4;
+
+DELETE FROM   llamadas
+WHERE  id_llamadas = 5;
+
+-- rollback;
+-- commit;
+
+
+/* 2 Con esta sentencia le estamos realizando las siguientes tareas
+1) Realizamos una transacción para poder modificar los datos de una determinada tabla
+2) Seleccionamos el esquema con el cual vamos a trabajar
+3) Realizamos la insercion de ocho registros nuevos a la tabla VENTAS, en el cual se agrego DOS SAVEPOINT por cada cuatro registros insertados
+4) Se convoca a la sentencia RELEACE SAVEPOINT PARTE_1 (comentado como se solicita en el desafío), para eliminar las primeras cuatros 
+inserciones realizadas y dejar a la tabla VENTAS con solo cuatro registros nuevos insertados
+5) Por último se realiza una COMMIT (comentado como se solicita en el desafío), para guardar y confirmar todas las operaciones realizadas sobre la tabla VENTAS*/
+
+start transaction;
+
+use `concesionaria-de-autos-ms`;
+
+SAVEPOINT parte_1;
+
+INSERT INTO ventas (ID_Ventas, ID_Clientes, ID_Vehiculo, ID_Empleados, Fecha_Venta, Forma_Pago,	Id_Ubicacion)
+VALUES (156,'6149-63','67-3967949','60-9928732','2021-05-12','tarjeta debito',1);
+INSERT INTO ventas (ID_Ventas, ID_Clientes, ID_Vehiculo, ID_Empleados, Fecha_Venta, Forma_Pago,	Id_Ubicacion)
+VALUES (157,'5645-32','61-3590477','28-8555168','2020-12-23','tarjeta credito',5);
+INSERT INTO ventas (ID_Ventas, ID_Clientes, ID_Vehiculo, ID_Empleados, Fecha_Venta, Forma_Pago,	Id_Ubicacion)
+VALUES (158,'5225-90','56-4424909','53-1265048','2020-09-10','tarjeta credito',2);
+INSERT INTO ventas (ID_Ventas, ID_Clientes, ID_Vehiculo, ID_Empleados, Fecha_Venta, Forma_Pago,	Id_Ubicacion)
+VALUES (159,'3992-28','46-0255291','28-1669522','2023-04-25','tarjeta debito',3);
+
+SAVEPOINT parte_2;
+
+INSERT INTO ventas (ID_Ventas, ID_Clientes, ID_Vehiculo, ID_Empleados, Fecha_Venta, Forma_Pago,	Id_Ubicacion)
+VALUES (160,'0060-37','00-1576950','30-0988085','2023-03-02','tarjeta credito',2);
+INSERT INTO ventas (ID_Ventas, ID_Clientes, ID_Vehiculo, ID_Empleados, Fecha_Venta, Forma_Pago,	Id_Ubicacion)
+VALUES (161,'3992-28','46-0255291','28-1669522','2022-03-05','tarjeta debito',5);
+INSERT INTO ventas (ID_Ventas, ID_Clientes, ID_Vehiculo, ID_Empleados, Fecha_Venta, Forma_Pago,	Id_Ubicacion)
+VALUES (162,'4718-63','52-5018723','13-8925216','2020-03-02','tarjeta credito',1);
+INSERT INTO ventas (ID_Ventas, ID_Clientes, ID_Vehiculo, ID_Empleados, Fecha_Venta, Forma_Pago,	Id_Ubicacion)
+VALUES (163,'6279-88','70-5828551','66-1291335','2021-05-02','efectivo',5);
+
+SAVEPOINT parte_3;
+
+-- releace savepoint parte_1;
+-- commit;
