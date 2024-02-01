@@ -14,7 +14,7 @@ SHOW grants FOR mauricio@localhost;
 USE mysql;
 
 -- creamos el user que solo tendrá el permiso de lectura 
-CREATE, INSERT,UPDATE user coder@localhost identified BY '987654';
+CREATE user coder@localhost identified BY '987654';
 
 -- concedemos solo el permiso de lectura, inserción y actualización sobre todas las tablas del esquema (concesionaria-de-auto), no se puede eliminar registros
 GRANT SELECT,INSERT,UPDATE ON `concesionaria-de-autos-ms`.* TO coder@localhost;
@@ -22,8 +22,4 @@ GRANT SELECT,INSERT,UPDATE ON `concesionaria-de-autos-ms`.* TO coder@localhost;
 -- corroboramos si efectivamente este usuario creado solo tiene el permiso de lectura, insercion y actualizacion
 SHOW grants FOR coder@localhost;
 
--- 3 con esta sentencia le estamos diciendo al sistema que le quite el permiso delete a ambos usuarios sobre todas las tablas del esquema (concesionaria-de-auto)
 
-REVOKE DELETE ON `concesionaria-de-autos-ms`.* FROM mauricio@localhost;
-
-REVOKE DELETE ON `concesionaria-de-autos-ms`.* FROM coder@localhost; 
