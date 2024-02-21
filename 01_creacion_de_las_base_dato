@@ -70,12 +70,10 @@ CREATE TABLE `proveedores`
 CREATE TABLE `seguros`
                  (
                   `id_seguro`         INT NOT NULL auto_increment,
-                  `id_vehiculo`       VARCHAR (10) NOT NULL,
                   `compania_seguro`   VARCHAR(50) NOT NULL,
                   `cobertura`         VARCHAR(50) NOT NULL,
                   `fecha_inicio`      DATE NOT NULL,
-                   PRIMARY KEY (`id_seguro`),
-                   FOREIGN KEY (`id_vehiculo`) REFERENCES `vehículos`(`id_vehiculo`)
+                   PRIMARY KEY (`id_seguro`)
                   );
 
 
@@ -115,6 +113,7 @@ CREATE TABLE `ubicacion_concesionaria`
 CREATE TABLE `vehiculos`
                  (
                   `id_vehiculo`      VARCHAR (10) NOT NULL,
+                  `id_poveedor`      INT NOT NULL
                   `marca`            VARCHAR(20) NOT NULL,
                   `modelo`           VARCHAR(20) NOT NULL,
                   `anio_fabricacion` INT NOT NULL,
@@ -136,10 +135,14 @@ CREATE TABLE `ventas`
                   `id_clientes`  VARCHAR (20) NOT NULL,
                   `id_vehiculo`  VARCHAR (10) NOT NULL,
                   `id_empleados` VARCHAR (10) NOT NULL,
+                  `id_seguro`    INT NOT NULL,
+                  `id_ubicacion` INT NOT NULL,
                   `fecha_venta`  DATE NOT NULL,
                   `forma_pago`   ENUM('efectivo','tarjeta debito','tarjeta credito')  NOT NULL,
                    PRIMARY KEY (`id_ventas`),
                    FOREIGN KEY (`id_clientes`) REFERENCES `clientes`(`id_clientes`),
                    FOREIGN KEY (`id_vehiculo`) REFERENCES `vehiculos`(`id_vehiculo`),
-                   FOREIGN KEY (`id_empleados`) REFERENCES `empleados`(`id_empleados`)
+                   FOREIGN KEY (`id_empleados`) REFERENCES `empleados`(`id_empleados`),
+                   FOREIGN KEY (`id_seguro`) REFERENCES `seguros`(`id_seguro`),
+                   FOREIGN KEY (`id_ubicacion`) REFERENCES `ubicacion`(`id_ubicacion`),
                   );
